@@ -1,3 +1,5 @@
-{{ form_start(form) }}
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
     {{ form_widget(form) }}
+    <a class="btn btn-dark" href="{{ path('article_index') }}">back to list</a>
+    <button class="btn btn-primary" type="submit">Save</button>
 {{ form_end(form) }}
