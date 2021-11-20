@@ -46,6 +46,8 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="The Image field is mandatory." , groups={"createHahaha"})
+     * @Assert\File(mimeTypes={ "image/jpeg", "image/png" } , mimeTypesMessage="Please upload a valid Image")
      */
     private $image;
 

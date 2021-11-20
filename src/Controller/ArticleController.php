@@ -36,7 +36,9 @@ class ArticleController extends AbstractController
     public function new(Request $request): Response
     {
         $article = new Article();
-        $form = $this->createForm(ArticleType::class, $article);
+        $form = $this->createForm(ArticleType::class, $article, [
+            'validation_groups' => ['Default', 'createHahaha']
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -76,7 +78,9 @@ class ArticleController extends AbstractController
     public function edit(Request $request, Article $article): Response
     {
         $originalImage = $article->getImage();
-        $form = $this->createForm(ArticleType::class, $article);
+        $form = $this->createForm(ArticleType::class, $article, [
+            'validation_groups' => ['Default']
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
