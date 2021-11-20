@@ -23,7 +23,9 @@
                 <td>{{ article.id }}</td>
                 <td>{{ article.title }}</td>
                 <td>{{ article.content }}</td>
-                <td>{{ article.image }}</td>
+                <td>
+                    <img src="/article_images/{{ article.image }}" style="width:110px;" alt="Article Image" >
+                </td>
                 <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                      {{ include('article/_delete_form.html.twig') }}
